@@ -1,5 +1,7 @@
 # TAKANURI | Portfolio
 
+[https://takanuri-spec.github.io/portfolio/](https://takanuri-spec.github.io/portfolio/)
+
 TAKANURIの個人開発アプリケーション群をまとめたポートフォリオサイトです。
 「Pantone Color of the Year 2026 (Cloud Dancer)」をベースカラーに取り入れ、洗練されたシンプルなデザインに仕上げています。
 
