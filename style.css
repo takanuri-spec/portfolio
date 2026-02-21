@@ -164,8 +164,7 @@ h1 {
 /* Showcase Link Button */
 .showcase-link-btn {
     display: inline-block;
-    margin-top: -2rem;
-    margin-bottom: 4rem;
+    margin: 4rem 0;
     padding: 1rem 2rem;
     background: var(--card-bg);
     border: 1px solid var(--card-border);
