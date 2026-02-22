@@ -8,7 +8,7 @@ export const services: Service[] = [
     fullDescription: '年末の大掃除をレトロゲーム風のクエストに変換。ポイント制やボス戦演出で家族の競争心を引き出す。非エンジニアでもテキストファイルを書き換えるだけでタスク追加可能な簡易運用フローを実現。',
     tags: ['HTML', 'CSS', 'JavaScript', 'Firebase RTDB'],
     link: 'https://oosouji-quest.web.app/',
-    year: '2026',
+    year: '2025',
     imageUrl: '/assets/screenshots/スクリーンショット 2026-02-21 1.18.05.png',
   },
   {
@@ -18,7 +18,7 @@ export const services: Service[] = [
     fullDescription: 'カメラ撮影だけでAIが属性を自動解析。断捨離アドバイスまで出力する未来のアシスタント。全資産を可視化し、執着を手放すための在庫管理基盤として設計。',
     tags: ['React', 'TypeScript', 'Gemini 2.0', 'Firestore'],
     link: 'https://tanaoroshi-810eb.web.app/',
-    year: '2026',
+    year: '2025',
     imageUrl: '/assets/screenshots/スクリーンショット 2026-02-21 1.20.20.png',
   },
   {
@@ -28,7 +28,7 @@ export const services: Service[] = [
     fullDescription: '家計簿から年金、RSU、確定申告まで。パーソナルな未来推計を実現する財務管理基盤。DBとしてGoogle Sheetsを採用し、自身が直接シート上でデータを視認・修正できるハック的構成。',
     tags: ['Vite PWA', 'NextAuth', 'Google Sheets API', 'Vercel'],
     link: 'https://money-boy.vercel.app/ledger/dashboard',
-    year: '2026',
+    year: '2025',
     imageUrl: '/assets/screenshots/スクリーンショット 2026-02-21 14.25.43.png',
   },
   {
@@ -38,7 +38,7 @@ export const services: Service[] = [
     fullDescription: '地球一周を目指しGPSで歩行記録。伊能忠敬の偉業というロマンと重ね合わせた継続ランニングアプリ。ただの距離記録を「歴史的な挑戦」に塗り替え、継続のモチベーションに変える。',
     tags: ['React', 'Vite', 'Capacitor', 'Geolocation API'],
     link: 'https://tracing-tadataka.web.app/',
-    year: '2026',
+    year: '2025',
     imageUrl: '/assets/screenshots/unnamed (5).png',
   },
   {
