@@ -14,6 +14,30 @@ export default function App() {
           description={profile.description}
         />
 
+        {/* 2025 Section */}
+        <div className="mb-20">
+          <div className="flex items-baseline gap-6 mb-4">
+            <h2 className="text-sm tracking-widest text-zinc-500 uppercase">
+              Selected Works
+            </h2>
+            <div className="flex-1 h-px bg-zinc-700"></div>
+            <span className="text-sm tracking-widest text-zinc-500">
+              2025
+            </span>
+          </div>
+        </div>
+
+        <div className="grid grid-cols-1 lg:grid-cols-2 border-l border-t border-zinc-700 mb-32">
+          {services.filter(s => s.year === '2025').map(service => (
+            <ServiceCard
+              key={service.id}
+              service={service}
+              index={services.findIndex(s => s.id === service.id)}
+            />
+          ))}
+        </div>
+
+        {/* 2026 Section */}
         <div className="mb-20">
           <div className="flex items-baseline gap-6 mb-4">
             <h2 className="text-sm tracking-widest text-zinc-500 uppercase">
@@ -27,8 +51,12 @@ export default function App() {
         </div>
 
         <div className="grid grid-cols-1 lg:grid-cols-2 border-l border-t border-zinc-700">
-          {services.map((service, index) => (
-            <ServiceCard key={service.id} service={service} index={index} />
+          {services.filter(s => s.year === '2026').map(service => (
+            <ServiceCard
+              key={service.id}
+              service={service}
+              index={services.findIndex(s => s.id === service.id)}
+            />
           ))}
         </div>
 
