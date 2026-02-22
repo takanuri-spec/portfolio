@@ -39,7 +39,7 @@ export const services: Service[] = [
     tags: ['React', 'Vite', 'Capacitor', 'Geolocation API'],
     link: 'https://tracing-tadataka.web.app/',
     year: '2026',
-    imageUrl: '/assets/screenshots/unnamed.png',
+    imageUrl: '/assets/screenshots/unnamed (5).png',
   },
   {
     id: '5',
@@ -49,7 +49,7 @@ export const services: Service[] = [
     tags: ['React', 'Vite', 'Gemini 2.0', 'Google Imagen'],
     link: 'https://wordbokujou.web.app/',
     year: '2026',
-    imageUrl: '/assets/screenshots/スクリーンショット 2026-02-21 15.38.16.png',
+    imageUrl: '/assets/screenshots/スクリーンショット 2026-02-21 15.43.59.png',
   },
   {
     id: '6',
@@ -59,6 +59,6 @@ export const services: Service[] = [
     tags: ['React', 'Firestore', 'Functions', 'Financial API'],
     link: 'https://tendaysago-277e6.web.app/',
     year: '2026',
-    imageUrl: '/assets/screenshots/スクリーンショット 2026-02-21 16.39.31.png',
+    imageUrl: '/assets/screenshots/スクリーンショット 2026-02-21 16.40.13.png',
   },
 ];
