@@ -41,7 +41,7 @@ export default function App() {
           </a>
           <a
             href="/showcase2.html"
-            className="inline-flex items-center justify-center px-8 py-4 text-sm font-medium tracking-widest text-zinc-900 uppercase transition-all duration-300 bg-zinc-100 hover:bg-white"
+            className="inline-flex items-center justify-center px-8 py-4 text-sm font-medium tracking-widest text-[#F0EEE9] border border-zinc-700 uppercase transition-all duration-300 hover:bg-zinc-800"
           >
             Visual Showcase
           </a>
