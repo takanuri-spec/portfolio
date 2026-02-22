@@ -18,7 +18,7 @@ interface ServiceCardProps {
 
 export function ServiceCard({ service, index }: ServiceCardProps) {
   return (
-    <a 
+    <a
       href={service.link}
       target="_blank"
       rel="noopener noreferrer"
@@ -50,27 +50,29 @@ export function ServiceCard({ service, index }: ServiceCardProps) {
               </span>
             )}
           </div>
-          
+
           <h3 className="text-4xl font-light text-zinc-100 group-hover:text-white transition-colors duration-700 tracking-tight mb-4 leading-tight">
             {service.title}
           </h3>
-          
-          {/* Short description - fades out */}
-          <p className="text-zinc-400 leading-relaxed text-sm tracking-wide opacity-100 group-hover:opacity-0 transition-opacity duration-300">
-            {service.description}
-          </p>
-          
-          {/* Full description - fades in */}
-          <p className="text-zinc-200 leading-relaxed absolute top-44 left-8 right-8 opacity-0 group-hover:opacity-100 transition-opacity duration-700 delay-300 text-sm tracking-wide">
-            {service.fullDescription}
-          </p>
+
+          <div className="grid">
+            {/* Short description - fades out */}
+            <p className="col-start-1 row-start-1 text-zinc-400 leading-relaxed text-sm tracking-wide opacity-100 group-hover:opacity-0 transition-opacity duration-300">
+              {service.description}
+            </p>
+
+            {/* Full description - fades in */}
+            <p className="col-start-1 row-start-1 text-zinc-200 leading-relaxed opacity-0 group-hover:opacity-100 transition-opacity duration-700 delay-300 text-sm tracking-wide pointer-events-none group-hover:pointer-events-auto">
+              {service.fullDescription}
+            </p>
+          </div>
         </div>
 
         {/* Bottom section - tags slide up */}
         <div className="translate-y-8 opacity-0 group-hover:translate-y-0 group-hover:opacity-100 transition-all duration-700 delay-400">
           <div className="flex flex-wrap gap-3">
             {service.tags.map((tag) => (
-              <span 
+              <span
                 key={tag}
                 className="px-4 py-1.5 text-xs tracking-widest bg-zinc-100 text-zinc-900 uppercase font-medium"
               >
@@ -80,7 +82,7 @@ export function ServiceCard({ service, index }: ServiceCardProps) {
           </div>
         </div>
       </div>
-      
+
       {/* Vertical accent line */}
       <div className="absolute left-0 top-0 bottom-0 w-0.5 bg-zinc-100 transform scale-y-0 group-hover:scale-y-100 transition-transform duration-700 origin-bottom"></div>
     </a>
