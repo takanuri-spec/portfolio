@@ -1,0 +1,649 @@
+/* ===================================================================
+   SHOWCASE v2 — Visual-Heavy Portfolio Presentation
+   デザインの意図: スクリーンショットを主役にした没入感のあるレイアウト。
+   各セクションでビジュアル面積70%以上、テキストは補足的に配置。
+   =================================================================== */
+
+:root {
+    --bg-dark: #111111;
+    --bg-section: #0a0a0a;
+    --text-white: #f5f5f5;
+    --text-muted: #888;
+    --text-dim: #555;
+    --accent: #F0EEE9;
+    --glass: rgba(255, 255, 255, 0.06);
+    --glass-border: rgba(255, 255, 255, 0.1);
+    --radius-lg: 20px;
+    --radius-md: 14px;
+    --radius-sm: 8px;
+    --shadow-heavy: 0 40px 80px rgba(0, 0, 0, 0.5);
+    --shadow-float: 0 20px 50px rgba(0, 0, 0, 0.3);
+    --shadow-glow: 0 0 60px rgba(240, 238, 233, 0.08);
+}
+
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+html {
+    scroll-behavior: smooth;
+}
+
+body {
+    background: var(--bg-dark);
+    font-family: 'Outfit', -apple-system, BlinkMacSystemFont, sans-serif;
+    color: var(--text-white);
+    line-height: 1.5;
+    overflow-x: hidden;
+}
+
+/* ── Navigation ── */
+.back-nav {
+    position: fixed;
+    top: 24px;
+    left: 24px;
+    z-index: 1000;
+    background: rgba(0, 0, 0, 0.6);
+    backdrop-filter: blur(20px);
+    -webkit-backdrop-filter: blur(20px);
+    border: 1px solid var(--glass-border);
+    padding: 10px 20px;
+    border-radius: 100px;
+    text-decoration: none;
+    color: var(--text-white);
+    font-size: 0.85rem;
+    font-weight: 500;
+    letter-spacing: 0.05em;
+    transition: all 0.3s ease;
+}
+
+.back-nav:hover {
+    background: rgba(255, 255, 255, 0.1);
+    transform: translateY(-2px);
+}
+
+/* ── Hero Section ── */
+.hero-section {
+    min-height: 100vh;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    text-align: center;
+    position: relative;
+    padding: 2rem;
+    overflow: hidden;
+}
+
+/* 背景のグラデーションアンビエント */
+.hero-section::before {
+    content: '';
+    position: absolute;
+    top: -50%;
+    left: -50%;
+    width: 200%;
+    height: 200%;
+    background: radial-gradient(ellipse at 30% 50%, rgba(240, 238, 233, 0.04) 0%, transparent 60%),
+        radial-gradient(ellipse at 70% 60%, rgba(200, 180, 160, 0.03) 0%, transparent 50%);
+    animation: ambientDrift 20s infinite ease-in-out alternate;
+    pointer-events: none;
+}
+
+@keyframes ambientDrift {
+    from {
+        transform: translate(0, 0) rotate(0deg);
+    }
+
+    to {
+        transform: translate(3%, -2%) rotate(2deg);
+    }
+}
+
+.hero-label {
+    font-size: 0.75rem;
+    text-transform: uppercase;
+    letter-spacing: 0.3em;
+    color: var(--text-muted);
+    margin-bottom: 2rem;
+    position: relative;
+    z-index: 1;
+}
+
+.hero-title {
+    font-size: clamp(3rem, 10vw, 8rem);
+    font-weight: 700;
+    letter-spacing: -0.03em;
+    line-height: 0.95;
+    margin-bottom: 1.5rem;
+    position: relative;
+    z-index: 1;
+    background: linear-gradient(135deg, #fff 0%, #aaa 100%);
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+    background-clip: text;
+}
+
+.hero-subtitle {
+    font-size: 1.2rem;
+    font-weight: 300;
+    color: var(--text-muted);
+    max-width: 500px;
+    position: relative;
+    z-index: 1;
+}
+
+.scroll-indicator {
+    position: absolute;
+    bottom: 40px;
+    left: 50%;
+    transform: translateX(-50%);
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 8px;
+    color: var(--text-dim);
+    font-size: 0.7rem;
+    letter-spacing: 0.2em;
+    text-transform: uppercase;
+}
+
+.scroll-indicator::after {
+    content: '';
+    width: 1px;
+    height: 40px;
+    background: linear-gradient(to bottom, var(--text-dim), transparent);
+    animation: scrollPulse 2s infinite;
+}
+
+@keyframes scrollPulse {
+
+    0%,
+    100% {
+        opacity: 0.3;
+    }
+
+    50% {
+        opacity: 1;
+    }
+}
+
+/* ── App Section（各ツールのセクション） ── */
+.app-section {
+    min-height: 100vh;
+    position: relative;
+    display: flex;
+    flex-direction: column;
+    padding: 6rem 5vw 4rem;
+    overflow: hidden;
+}
+
+/* 奇数セクションは若干背景を変えて区切りを作る */
+.app-section:nth-child(even) {
+    background: var(--bg-section);
+}
+
+/* ── セクションヘッダー（コンパクトなテキスト情報） ── */
+.section-header {
+    display: flex;
+    align-items: flex-start;
+    justify-content: space-between;
+    gap: 2rem;
+    margin-bottom: 3rem;
+    flex-wrap: wrap;
+}
+
+.section-meta {
+    max-width: 480px;
+}
+
+.app-number {
+    font-size: 0.75rem;
+    font-weight: 700;
+    color: var(--text-dim);
+    letter-spacing: 0.15em;
+    text-transform: uppercase;
+    margin-bottom: 0.5rem;
+    display: block;
+}
+
+.app-name {
+    font-size: clamp(2.5rem, 5vw, 4rem);
+    font-weight: 700;
+    letter-spacing: -0.02em;
+    line-height: 1;
+    margin-bottom: 0.3rem;
+}
+
+.app-subtitle {
+    font-size: 1rem;
+    font-weight: 300;
+    color: var(--text-muted);
+    margin-bottom: 1rem;
+}
+
+.app-description {
+    font-size: 0.95rem;
+    color: var(--text-muted);
+    line-height: 1.6;
+    max-width: 400px;
+}
+
+.section-tags {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 8px;
+    align-self: flex-end;
+}
+
+.tech-tag {
+    background: var(--glass);
+    border: 1px solid var(--glass-border);
+    padding: 6px 14px;
+    border-radius: 100px;
+    font-size: 0.75rem;
+    font-weight: 500;
+    color: var(--text-muted);
+    letter-spacing: 0.03em;
+    white-space: nowrap;
+}
+
+/* ── スクリーンショット・レイアウト（各バリエーション） ── */
+
+/* --- パターン A: メイン大＋右にサブ2枚を縦配置 --- */
+.gallery-layout-a {
+    flex: 1;
+    display: grid;
+    grid-template-columns: 2fr 1fr;
+    grid-template-rows: 1fr 1fr;
+    gap: 1rem;
+    min-height: 0;
+}
+
+.gallery-layout-a .shot-main {
+    grid-row: 1 / -1;
+}
+
+/* --- パターン B: 3枚を斜めオフセットで重ねる --- */
+.gallery-layout-b {
+    flex: 1;
+    position: relative;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    min-height: 0;
+}
+
+.gallery-layout-b .shot {
+    position: absolute;
+    border-radius: var(--radius-lg);
+    overflow: hidden;
+    box-shadow: var(--shadow-heavy);
+    transition: transform 0.5s cubic-bezier(0.16, 1, 0.3, 1);
+}
+
+.gallery-layout-b .shot:nth-child(1) {
+    width: 55%;
+    z-index: 3;
+    left: 15%;
+    top: 5%;
+}
+
+.gallery-layout-b .shot:nth-child(2) {
+    width: 45%;
+    z-index: 2;
+    right: 5%;
+    top: 15%;
+    transform: rotate(3deg);
+}
+
+.gallery-layout-b .shot:nth-child(3) {
+    width: 40%;
+    z-index: 1;
+    left: 5%;
+    bottom: 5%;
+    transform: rotate(-2deg);
+}
+
+.gallery-layout-b .shot:hover {
+    z-index: 10;
+    transform: rotate(0deg) scale(1.05) !important;
+}
+
+/* --- パターン C: 横フルブリード1枚 + ボトムにサブ2枚 --- */
+.gallery-layout-c {
+    flex: 1;
+    display: grid;
+    grid-template-columns: 1fr;
+    grid-template-rows: 2fr 1fr;
+    gap: 1rem;
+    min-height: 0;
+}
+
+.gallery-layout-c .sub-row {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 1rem;
+}
+
+/* --- パターン D: マガジン風 3カラム均等 --- */
+.gallery-layout-d {
+    flex: 1;
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: 1rem;
+    min-height: 0;
+}
+
+/* --- パターン E: 大きなメイン + 小さいサブが左に重なる --- */
+.gallery-layout-e {
+    flex: 1;
+    position: relative;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    min-height: 0;
+}
+
+.gallery-layout-e .shot-hero {
+    width: 70%;
+    border-radius: var(--radius-lg);
+    overflow: hidden;
+    box-shadow: var(--shadow-heavy);
+    position: relative;
+    z-index: 2;
+}
+
+.gallery-layout-e .shot-float-left {
+    position: absolute;
+    left: 2%;
+    bottom: 10%;
+    width: 35%;
+    border-radius: var(--radius-md);
+    overflow: hidden;
+    box-shadow: var(--shadow-float);
+    z-index: 3;
+    transform: rotate(-4deg);
+    transition: transform 0.5s cubic-bezier(0.16, 1, 0.3, 1);
+}
+
+.gallery-layout-e .shot-float-right {
+    position: absolute;
+    right: 2%;
+    top: 5%;
+    width: 30%;
+    border-radius: var(--radius-md);
+    overflow: hidden;
+    box-shadow: var(--shadow-float);
+    z-index: 1;
+    transform: rotate(3deg);
+    transition: transform 0.5s cubic-bezier(0.16, 1, 0.3, 1);
+}
+
+.gallery-layout-e .shot-float-left:hover,
+.gallery-layout-e .shot-float-right:hover {
+    transform: rotate(0deg) scale(1.08);
+    z-index: 10;
+}
+
+/* --- パターン F: 中央に大きく + 背景に半透明ゴースト的 --- */
+.gallery-layout-f {
+    flex: 1;
+    position: relative;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    min-height: 0;
+}
+
+.gallery-layout-f .shot-bg {
+    position: absolute;
+    width: 80%;
+    opacity: 0.15;
+    filter: blur(8px);
+    border-radius: var(--radius-lg);
+    overflow: hidden;
+    z-index: 1;
+}
+
+.gallery-layout-f .shot-center {
+    width: 55%;
+    border-radius: var(--radius-lg);
+    overflow: hidden;
+    box-shadow: var(--shadow-heavy);
+    position: relative;
+    z-index: 3;
+}
+
+.gallery-layout-f .shot-side {
+    position: absolute;
+    width: 30%;
+    border-radius: var(--radius-md);
+    overflow: hidden;
+    box-shadow: var(--shadow-float);
+    z-index: 2;
+    transition: transform 0.5s cubic-bezier(0.16, 1, 0.3, 1);
+}
+
+.gallery-layout-f .shot-side-left {
+    left: 3%;
+    top: 20%;
+    transform: rotate(-5deg);
+}
+
+.gallery-layout-f .shot-side-right {
+    right: 3%;
+    bottom: 15%;
+    transform: rotate(4deg);
+}
+
+.gallery-layout-f .shot-side:hover {
+    transform: rotate(0deg) scale(1.1);
+    z-index: 10;
+}
+
+/* ── 共通画像スタイル ── */
+.shot {
+    border-radius: var(--radius-lg);
+    overflow: hidden;
+    box-shadow: var(--shadow-heavy);
+    transition: transform 0.5s cubic-bezier(0.16, 1, 0.3, 1);
+}
+
+.shot img,
+.shot-main img,
+.shot-hero img,
+.shot-center img,
+.shot-bg img,
+.shot-float-left img,
+.shot-float-right img,
+.shot-side img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    display: block;
+}
+
+.shot-main {
+    border-radius: var(--radius-lg);
+    overflow: hidden;
+    box-shadow: var(--shadow-heavy);
+}
+
+.shot-main img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+}
+
+/* ── Footer ── */
+.footer-section {
+    min-height: 60vh;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    text-align: center;
+    padding: 4rem 2rem;
+    position: relative;
+}
+
+.footer-section::before {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: 50%;
+    transform: translateX(-50%);
+    width: 200px;
+    height: 1px;
+    background: linear-gradient(to right, transparent, var(--text-dim), transparent);
+}
+
+.footer-title {
+    font-size: 2rem;
+    font-weight: 300;
+    letter-spacing: 0.1em;
+    margin-bottom: 1rem;
+}
+
+.footer-link {
+    display: inline-block;
+    margin-top: 2rem;
+    padding: 12px 28px;
+    border: 1px solid var(--glass-border);
+    border-radius: 100px;
+    text-decoration: none;
+    color: var(--text-white);
+    font-weight: 500;
+    font-size: 0.9rem;
+    letter-spacing: 0.05em;
+    transition: all 0.3s ease;
+    background: var(--glass);
+}
+
+.footer-link:hover {
+    background: rgba(255, 255, 255, 0.12);
+    transform: translateY(-2px);
+}
+
+/* ── スクロールアニメーション ── */
+.reveal {
+    opacity: 0;
+    transform: translateY(40px);
+    transition: opacity 0.8s ease, transform 0.8s cubic-bezier(0.16, 1, 0.3, 1);
+}
+
+.reveal.visible {
+    opacity: 1;
+    transform: translateY(0);
+}
+
+/* ── レスポンシブ ── */
+@media (max-width: 1024px) {
+    .app-section {
+        padding: 4rem 4vw 3rem;
+    }
+
+    .section-header {
+        flex-direction: column;
+    }
+
+    .section-tags {
+        align-self: flex-start;
+    }
+
+    .gallery-layout-a {
+        grid-template-columns: 1fr;
+        grid-template-rows: 2fr 1fr 1fr;
+    }
+
+    .gallery-layout-a .shot-main {
+        grid-row: auto;
+    }
+
+    .gallery-layout-d {
+        grid-template-columns: 1fr;
+    }
+
+    .gallery-layout-b .shot:nth-child(1) {
+        width: 70%;
+        left: 5%;
+    }
+
+    .gallery-layout-b .shot:nth-child(2) {
+        width: 55%;
+        right: 2%;
+    }
+
+    .gallery-layout-b .shot:nth-child(3) {
+        width: 50%;
+    }
+
+    .gallery-layout-e .shot-hero {
+        width: 85%;
+    }
+
+    .gallery-layout-e .shot-float-left {
+        width: 45%;
+    }
+
+    .gallery-layout-e .shot-float-right {
+        width: 40%;
+    }
+
+    .gallery-layout-f .shot-center {
+        width: 75%;
+    }
+
+    .gallery-layout-f .shot-side {
+        width: 40%;
+    }
+}
+
+@media (max-width: 640px) {
+    .app-section {
+        padding: 3rem 3vw 2rem;
+        min-height: auto;
+    }
+
+    .app-name {
+        font-size: 2rem;
+    }
+
+    .gallery-layout-b .shot {
+        position: relative !important;
+        width: 100% !important;
+        left: auto !important;
+        right: auto !important;
+        top: auto !important;
+        bottom: auto !important;
+        transform: none !important;
+        margin-bottom: 1rem;
+    }
+
+    .gallery-layout-b {
+        flex-direction: column;
+    }
+
+    .gallery-layout-e .shot-float-left,
+    .gallery-layout-e .shot-float-right {
+        display: none;
+    }
+
+    .gallery-layout-e .shot-hero {
+        width: 100%;
+    }
+
+    .gallery-layout-f .shot-side {
+        display: none;
+    }
+
+    .gallery-layout-f .shot-center {
+        width: 95%;
+    }
+
+    .gallery-layout-c .sub-row {
+        grid-template-columns: 1fr;
+    }
+}
