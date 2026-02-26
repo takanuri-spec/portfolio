@@ -27,9 +27,9 @@
 | サイトタイトル | TAKANURI \| Portfolio |
 | メインタイトル（index.html） | SELECTED WORKS |
 | Showcase 1 タイトル | 個人開発の軌跡 |
-| Showcase 1 サブタイトル | 非エンジニアが2ヶ月で駆け抜けた、6つのアプリと1つのポートフォリオ |
+| Showcase 1 サブタイトル | 非エンジニアが2ヶ月で駆け抜けた、7つのアプリと1つのポートフォリオ |
 | Showcase 2 タイトル | LOOK & FEEL |
-| Showcase 2 サブタイトル | 6つのアプリケーションを、スクリーンショットで体感する |
+| Showcase 2 サブタイトル | 7つのアプリケーションを、スクリーンショットで体感する |
 | デザインテーマ | Pantone Color of the Year 2026 (Cloud Dancer #F0EEE9) |
 | フォント | Outfit (300, 500, 700) |
 
@@ -330,6 +330,45 @@ showcase.html ではモバイルフレーム（`.mobile-frame`）で表示。
 
 ### Visual Showcase レイアウト
 パターンA（メイン大 + 右にサブ2枚縦配置）
+
+---
+
+## 07. PEPETETSU
+
+### 基本情報
+| 項目 | 値 |
+|---|---|
+| 表示名 | PEPETETSU |
+| 日本語名 | 無限マップ生成ボードゲームエンジン |
+| 英語キャッチ | Infinite Board Game Engine |
+| 本番URL | https://pepetetsu-de422.web.app/ |
+| アイコン | assets/icons/pepetetsu.png |
+
+### 技術スタック
+- Firebase
+
+### テキストコンテンツ
+
+**企画の意図**
+プレイするたびに異なるマップが生成される、リプレイ性の高いボードゲーム体験を提供する。
+
+**面白み**
+無限マップ生成により、毎回新鮮な戦略的判断が求められる。
+
+**独自の工夫**
+アルゴリズムによるプロシージャル生成で、同じマップが二度と生まれない設計。
+
+**紹介文（Visual Showcase用・簡潔版）**
+無限マップ生成ボードゲームエンジン。プレイするたびに異なるマップが生成される。
+
+### スクリーンショット
+| 用途 | ファイルパス | 説明 |
+|---|---|---|
+| showcase メイン | assets/screenshots/pepetetsu.png | メイン画面（追加予定） |
+| showcase2 画像1 | assets/screenshots/pepetetsu.png | メイン画面（追加予定） |
+
+### Visual Showcase レイアウト
+パターンD（3カラム均等 / スクショ追加後に整備）
 
 ---
 

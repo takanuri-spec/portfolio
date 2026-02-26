@@ -61,4 +61,14 @@ export const services: Service[] = [
     year: '2026',
     imageUrl: '/assets/screenshots/スクリーンショット 2026-02-21 16.40.13.png',
   },
+  {
+    id: '7',
+    title: 'PEPETETSU',
+    description: '無限マップ生成ボードゲームエンジン',
+    fullDescription: '無限マップ生成ボードゲームエンジン。プレイするたびに異なるマップが生成される、リプレイ性の高いボードゲーム体験を提供する。',
+    tags: ['Firebase'],
+    link: 'https://pepetetsu-de422.web.app/',
+    year: '2026',
+    imageUrl: '/assets/screenshots/pepetetsu.png',
+  },
 ];
