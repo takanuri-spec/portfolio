@@ -52,6 +52,16 @@ export const services: Service[] = [
     imageUrl: '/assets/screenshots/スクリーンショット 2026-02-21 15.43.59.png',
   },
   {
+    id: '7',
+    title: 'MONEY-BOY NEO',
+    description: 'Google Sheetsをデータストアとするパーソナル家計管理PWA',
+    fullDescription: 'データの主権はユーザーに——すべての家計データは自分のGoogle Sheetsに保存。複式簿記・厚生年金シミュレーション・確定申告計算を一元管理するPWA。インストールするとホーム画面から起動でき、オフライン時もUIを表示。',
+    tags: ['React 19', 'PWA', 'Google Sheets API', 'Vercel'],
+    link: 'https://money-boy-8cuw.vercel.app/',
+    year: '2026',
+    imageUrl: '/assets/screenshots/スクリーンショット 2026-02-21 14.25.43.png',
+  },
+  {
     id: '6',
     title: '10 Days Ago',
     description: '10日前の市場データで投資判断を体験',
