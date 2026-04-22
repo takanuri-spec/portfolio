@@ -7,7 +7,7 @@ import { Github, Linkedin, Mail } from 'lucide-react';
 export default function App() {
   return (
     <div className="min-h-screen bg-zinc-900">
-      <div className="max-w-[1800px] mx-auto px-12 py-24">
+      <div className="max-w-[1800px] mx-auto px-4 sm:px-8 lg:px-12 py-12 lg:py-24">
         <Hero
           name={profile.name}
           title={profile.title}
@@ -33,7 +33,7 @@ export default function App() {
         </div>
 
         <footer className="mt-32 pt-12 border-t border-zinc-700">
-          <div className="flex items-start justify-between">
+          <div className="flex flex-col sm:flex-row items-start justify-between gap-8">
             <div>
               <p className="text-zinc-400">© 2026 {profile.name}. All Rights Reserved.</p>
             </div>

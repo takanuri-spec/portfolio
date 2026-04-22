@@ -8,7 +8,7 @@ export function Hero({ name, title, description }: HeroProps) {
   return (
     <div className="mb-32 border-b border-zinc-700 pb-20">
       <div className="flex items-baseline gap-8 mb-8">
-        <div className="text-7xl font-light text-zinc-50 tracking-tighter leading-none">
+        <div className="text-4xl sm:text-5xl lg:text-7xl font-light text-zinc-50 tracking-tighter leading-none">
           {name}
         </div>
       </div>

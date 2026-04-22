@@ -25,7 +25,7 @@ export function ServiceCard({ service, index }: ServiceCardProps) {
       className="group relative overflow-hidden bg-zinc-800 transition-all duration-700 hover:bg-zinc-900 block h-96 border-b border-r border-zinc-700"
     >
       {/* Large index number */}
-      <div className="absolute top-8 left-8 text-9xl font-bold text-zinc-700 group-hover:text-zinc-600 transition-colors duration-700 leading-none select-none">
+      <div className="absolute top-8 left-8 text-7xl sm:text-9xl font-bold text-zinc-700 group-hover:text-zinc-600 transition-colors duration-700 leading-none select-none">
         {String(index + 1).padStart(2, '0')}
       </div>
 
@@ -51,7 +51,7 @@ export function ServiceCard({ service, index }: ServiceCardProps) {
             )}
           </div>
 
-          <h3 className="text-4xl font-light text-zinc-100 group-hover:text-white transition-colors duration-700 tracking-tight mb-4 leading-tight">
+          <h3 className="text-2xl sm:text-4xl font-light text-zinc-100 group-hover:text-white transition-colors duration-700 tracking-tight mb-4 leading-tight">
             {service.title}
           </h3>
 
