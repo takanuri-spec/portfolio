@@ -344,14 +344,18 @@ const TWEAKS = /*EDITMODE-BEGIN*/{
     color: var(--ink-mute);
     letter-spacing: 0.1em;
     text-decoration: none;
-    padding: 2px 6px;
+    padding: 4px 8px;
     border: 1px solid transparent;
     transition: all .3s ease;
     opacity: 0.5;
     cursor: pointer;
+    min-height: 44px;
+    display: flex;
+    align-items: center;
   }
   .idx:hover .view-btn,
-  .idx .view-btn:hover{
+  .idx .view-btn:hover,
+  .idx .view-btn:active{
     opacity: 1;
     color: var(--ink);
     border-color: var(--ink-mute);
@@ -838,6 +842,14 @@ window.WORKS = [
   const dPh = document.getElementById('dPh');
   const closeBtn = document.getElementById('closeBtn');
 
+  // Detect touch capability
+  const isTouchDevice = () => {
+    return (('ontouchstart' in window) ||
+            (navigator.maxTouchPoints > 0) ||
+            (navigator.msMaxTouchPoints > 0));
+  };
+  const hasTouch = isTouchDevice();
+
   WORKS.forEach((w, i) => {
     const li = document.createElement('li');
     li.className = 'idx';
@@ -852,10 +864,15 @@ window.WORKS = [
       <span class="year">${w.year}</span>
       <a class="view-btn" href="${w.link || '#'}" target="_blank" rel="noopener noreferrer">VIEW</a>
     `;
-    li.addEventListener('mouseenter', () => select(i));
-    li.addEventListener('mouseleave', () => {
-      if (detail.contains(document.activeElement) === false) hide();
-    });
+
+    if (!hasTouch) {
+      // Desktop: hover to show detail panel
+      li.addEventListener('mouseenter', () => select(i));
+      li.addEventListener('mouseleave', () => {
+        if (detail.contains(document.activeElement) === false) hide();
+      });
+    }
+
     li.addEventListener('click', (e) => {
       if (e.target.classList.contains('view-btn')) return;
       select(i);
@@ -891,10 +908,22 @@ window.WORKS = [
     document.querySelectorAll('.idx').forEach(el=>el.classList.remove('active'));
   }
   closeBtn.addEventListener('click', hide);
-  detail.addEventListener('mouseenter', () => {
-    // Keep detail panel open when hovering over it
-  });
-  detail.addEventListener('mouseleave', hide);
+
+  if (!hasTouch) {
+    // Desktop: close panel on mouseleave
+    detail.addEventListener('mouseenter', () => {
+      // Keep detail panel open when hovering over it
+    });
+    detail.addEventListener('mouseleave', hide);
+  } else {
+    // Mobile: close panel on outside tap
+    document.addEventListener('click', (e) => {
+      if (!detail.contains(e.target) && !e.target.closest('.idx') && detail.classList.contains('show')) {
+        hide();
+      }
+    });
+  }
+
   document.addEventListener('keydown', (e)=>{ if(e.key === 'Escape') hide(); });
 
   const tweaks = document.getElementById('tweaks');
