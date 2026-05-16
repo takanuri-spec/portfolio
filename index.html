@@ -329,7 +329,7 @@ const TWEAKS = /*EDITMODE-BEGIN*/{
   }
   .idx{
     display: grid;
-    grid-template-columns: 38px 1fr auto;
+    grid-template-columns: 38px 1fr auto auto;
     align-items: baseline;
     gap: 14px;
     padding: 10px 6px 10px 4px;
@@ -337,6 +337,24 @@ const TWEAKS = /*EDITMODE-BEGIN*/{
     cursor: pointer;
     position: relative;
     transition: background-color .45s ease, color .45s ease;
+  }
+  .idx .view-btn{
+    font-family: "JetBrains Mono", monospace;
+    font-size: 10px;
+    color: var(--ink-mute);
+    letter-spacing: 0.1em;
+    text-decoration: none;
+    padding: 2px 6px;
+    border: 1px solid transparent;
+    transition: all .3s ease;
+    opacity: 0.5;
+    cursor: pointer;
+  }
+  .idx:hover .view-btn,
+  .idx .view-btn:hover{
+    opacity: 1;
+    color: var(--ink);
+    border-color: var(--ink-mute);
   }
   .idx:first-child{ border-top: 1px solid var(--rule); }
   .idx::after{
@@ -455,13 +473,7 @@ const TWEAKS = /*EDITMODE-BEGIN*/{
     padding-bottom: 12px;
   }
   .detail .d-shot{
-    width: 100%;
-    aspect-ratio: 16/10;
-    background: var(--paper);
-    border: 1px solid var(--rule-soft);
-    margin-bottom: 12px;
-    position: relative;
-    overflow: hidden;
+    display: none;
   }
   .detail .d-shot .ph{
     position: absolute; inset:0;
@@ -838,8 +850,16 @@ window.WORKS = [
         <div class="blurb">${w.subtitle}</div>
       </div>
       <span class="year">${w.year}</span>
+      <a class="view-btn" href="${w.link || '#'}" target="_blank" rel="noopener noreferrer">VIEW</a>
     `;
-    li.addEventListener('click', () => select(i));
+    li.addEventListener('mouseenter', () => select(i));
+    li.addEventListener('mouseleave', () => {
+      if (detail.contains(document.activeElement) === false) hide();
+    });
+    li.addEventListener('click', (e) => {
+      if (e.target.classList.contains('view-btn')) return;
+      select(i);
+    });
     li.addEventListener('keydown', (e)=>{
       if(e.key === 'Enter' || e.key === ' '){ e.preventDefault(); select(i); }
     });
@@ -871,6 +891,10 @@ window.WORKS = [
     document.querySelectorAll('.idx').forEach(el=>el.classList.remove('active'));
   }
   closeBtn.addEventListener('click', hide);
+  detail.addEventListener('mouseenter', () => {
+    // Keep detail panel open when hovering over it
+  });
+  detail.addEventListener('mouseleave', hide);
   document.addEventListener('keydown', (e)=>{ if(e.key === 'Escape') hide(); });
 
   const tweaks = document.getElementById('tweaks');
