@@ -482,5 +482,11 @@ showcase.html ではモバイルフレーム（`.mobile-frame`）で表示。
 - `スクリーンショット 2026-02-21 16.40.47.png` — 未使用
 - `スクリーンショット 2026-02-21 16.40.55.png` — 未使用
 
+### AIR BLDG 3D 関連（2026-07 追加）
+- `toaru_office_building.png` — ✅ showcase メイン（Godot 3D マップ）
+
+### 伊勢志摩 旅のしおり 関連（2026-07 追加）
+- `summer_iseshima.png` — ✅ showcase メイン（ログイン画面）
+
 ### その他
 - `service_illustrations.png` — index.html のイラスト原画（参考資料）
